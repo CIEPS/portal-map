@@ -47,7 +47,8 @@ const map = L.map('map', {
   minZoom: 3,
   maxZoom: 12,
   zoomSnap: 0.25,
-  zoom: 2.50
+  zoom: 2.50,
+  worldCopyJump: true
 });
 
 map.createPane('labels');
