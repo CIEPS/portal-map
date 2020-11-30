@@ -87,7 +87,7 @@ Promise.all([
         <div>${layer.feature.properties.name}</div>
         <div>
           <a href="https://portal.issn.org/?q=api/search&search[]=MUST=country=${layer.feature.properties.iso_a3}&search[]=MUST=record=Register">
-            ${layer.feature.properties.notices.toString()} notices
+            ${layer.feature.properties.notices.toString()} records
           </a>
         </div>
       `);
