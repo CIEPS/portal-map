@@ -32,23 +32,12 @@ function getColor (total) {
   return color;
 }
 
-function style (feature) {
-  const fillColor = getColor(feature.properties.notices);
-  return {
-    fillColor,
-    fillOpacity: 0.6,
-    weight: 1,
-    opacity: 0.7,
-    color: '#333'
-  };
-}
 const map = L.map('map', {
   center: [10.0, 5.0],
   minZoom: 3,
   maxZoom: 12,
   zoomSnap: 0.25,
-  zoom: 2.50,
-  worldCopyJump: true
+  zoom: 2.50
 });
 
 map.createPane('labels');
@@ -79,18 +68,36 @@ Promise.all([
     }
     return feature;
   });
-  const geojson = L.geoJson(countryBoundaries, { style: style }).addTo(map);
 
-  geojson.eachLayer(function (layer) {
-    if ('notices' in layer.feature.properties) {
-      layer.bindPopup(`
-        <div>${layer.feature.properties.name}</div>
-        <div>
-          <a href="https://portal.issn.org/?q=api/search&search[]=MUST=country=${layer.feature.properties.iso_a3}&search[]=MUST=record=Register">
-            ${layer.feature.properties.notices.toString()} records
-          </a>
-        </div>
-      `);
-    }
-  });
+  L.vectorGrid.slicer(countryBoundaries, {
+    rendererFactory: L.svg.tile,
+    vectorTileLayerStyles: {
+      sliced: function (properties) {
+        const fillColor = getColor(properties.notices);
+        return {
+          fillColor,
+          fillOpacity: 0.6,
+          weight: 1,
+          opacity: 0.7,
+          color: '#333',
+          stroke: true,
+          fill: true
+        };
+      }
+    },
+    interactive: true
+  }).on('click', function (e) {
+    const properties = e.layer.properties;
+    L.popup()
+      .setContent(`
+      <div>${properties.name}</div>
+      <div>
+        <a href="https://portal.issn.org/?q=api/search&search[]=MUST=country=${properties.iso_a3}&search[]=MUST=record=Register">
+          ${properties.notices.toString()} records
+        </a>
+      </div>
+    `)
+      .setLatLng(e.latlng)
+      .openOn(map);
+  }).addTo(map);
 });
