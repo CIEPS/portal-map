@@ -64,8 +64,8 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_only_labels/{z}
 }).addTo(map);
 
 Promise.all([
-  window.fetch('/custom.geo.json').then(response => response.json()),
-  window.fetch('/countries.json').then(response => response.json())
+  window.fetch('/portal-map/custom.geo.json').then(response => response.json()),
+  window.fetch('/portal-map/countries.json').then(response => response.json())
 ]).then(([countryBoundaries, noticesCountry]) => {
   const betterNoticesCountry = noticesCountry.reduce((accumulator, current) => {
     accumulator[current.country] = current;
