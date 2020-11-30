@@ -1,35 +1,38 @@
 /* global L */
 
-// function getOpacity(total) {
-//     let opacity = 0.2;
-//     if (total > 50) opacity = 0.3;
-//     if (total > 100) opacity = 0.4;
-//     if (total > 500) opacity = 0.5;
-//     if (total > 2000) opacity = 0.6;
-//     if (total > 10000) opacity = 0.7;
-//     if (total > 40000) opacity = 0.8;
-//     return opacity;
-// }
-
-// function getColor(continent) {
-//     let color = '#999999';
-//     if (continent === 'Europe') color = '#0069b3';
-//     if (continent === 'Asia') color = '#ffcc01';
-//     if (continent === 'Africa') color = '#f07d00';
-//     if (continent === 'North America') color = '#00963f';
-//     if (continent === 'South America') color = '#b80d7f';
-//     if (continent === 'Oceania') color = '#e40613';
-//     return color;
-// }
+const colors = [
+  {
+    threshold: 0,
+    hex: '#ffff00'
+  },
+  {
+    threshold: 100,
+    hex: '#ffdc00'
+  },
+  {
+    threshold: 500,
+    hex: '#ffb400'
+  },
+  {
+    threshold: 2000,
+    hex: '#ff9600'
+  },
+  {
+    threshold: 10000,
+    hex: '#ff7800'
+  },
+  {
+    threshold: 50000,
+    hex: '#ff5000'
+  }
+];
 
 function getColor (total) {
-  let color = '#ffff00';
-  if (total > 100) color = '#ffdc00';
-  if (total > 500) color = '#ffb400';
-  if (total > 2000) color = '#ff9600';
-  if (total > 10000) color = '#ff7800';
-  if (total > 40000) color = '#ff5000';
-  return color;
+  let output;
+  colors.forEach(color => {
+    if (total >= color.threshold) output = color.hex;
+  });
+  return output;
 }
 
 const map = L.map('map', {
@@ -63,9 +66,7 @@ Promise.all([
   }, {});
 
   countryBoundaries.features = countryBoundaries.features.map(feature => {
-    if (feature.properties.iso_a3 in betterNoticesCountry) {
-      feature.properties.notices = betterNoticesCountry[feature.properties.iso_a3].notices;
-    }
+    feature.properties.notices = (feature.properties.iso_a3 in betterNoticesCountry) ? betterNoticesCountry[feature.properties.iso_a3].notices : 0;
     return feature;
   });
 
@@ -76,10 +77,10 @@ Promise.all([
         const fillColor = getColor(properties.notices);
         return {
           fillColor,
-          fillOpacity: 0.6,
+          fillOpacity: 0.8,
           weight: 1,
-          opacity: 0.7,
-          color: '#333',
+          opacity: 1,
+          color: '#666',
           stroke: true,
           fill: true
         };
@@ -100,4 +101,27 @@ Promise.all([
       .setLatLng(e.latlng)
       .openOn(map);
   }).addTo(map);
+
+  const legend = L.control({ position: 'topright' });
+
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div', 'info legend');
+    const grades = colors.reduce((accumulator, current) => {
+      accumulator.push(current.threshold);
+      return accumulator;
+    }, []);
+    div.innerHTML += '<span>Total records</span>';
+    for (let i = 0; i < grades.length; i++) {
+      div.innerHTML += `
+        <div>  
+          <span class="color" style="background:${getColor(grades[i] + 1)}"></span>
+          <span>${grades[i]} ${grades[i + 1] ? ' &ndash; ' + grades[i + 1] : '+'}</span>
+        </div>
+      `;
+    }
+
+    return div;
+  };
+
+  legend.addTo(map);
 });
