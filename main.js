@@ -2,15 +2,20 @@
 
 const generateColors = () => {
   const baseColor = [
-    ['#00ffff', '#00dcff', '#00b4ff', '#0096ff', '#0078ff', '#0050ff'],
-    ['#00ff00', '#00dc00', '#00b400', '#009600', '#007800', '#005000'],
-    ['#ffff00', '#ffdc00', '#ffb400', '#ff9600', '#ff7800', '#ff5000']
+    ['02394A', '043565', '5158BB', 'F26DF9', 'EB4B98', 'EAF0CE'],
+    ['2176ae', '57b8ff', 'b66d0d', 'fbb13c', 'fe6847', 'cde7b0'],
+    ['985f99', '9684a1', 'aaacb0', 'b6c9bb', 'bfedc1', 'f8f272'],
+    ['0b2027', '40798c', '70a9a1', 'cfd7c7', 'f6f1d1', 'aad922'],
+    ['ffffff', '412234', '6d466b', 'b49fcc', 'ead7d7', 'a72608'],
+    ['114b5f', '1a936f', '88d498', 'c6dabf', 'f3e9d2', 'ff7f11'],
+    ['a8d5e2', 'f9a620', 'ffd449', '548c2f', '104911', 'd1b1cb']
+
   ];
   const randomIndex = Math.floor(Math.random() * (baseColor.length - 1));
   const colors = baseColor[randomIndex].map((color, index) => {
     return {
       threshold: index ? Math.pow(10, index) : 0,
-      hex: color
+      hex: '#' + color
     };
   });
   return colors;
