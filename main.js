@@ -6,7 +6,7 @@ const generateColors = () => {
     ['#00ff00', '#00dc00', '#00b400', '#009600', '#007800', '#005000'],
     ['#ffff00', '#ffdc00', '#ffb400', '#ff9600', '#ff7800', '#ff5000']
   ];
-  const randomIndex = Math.round(Math.random() * (baseColor.length - 1));
+  const randomIndex = Math.floor(Math.random() * (baseColor.length - 1));
   const colors = baseColor[randomIndex].map((color, index) => {
     return {
       threshold: index ? Math.pow(10, index) : 0,
