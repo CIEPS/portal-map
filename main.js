@@ -1,31 +1,22 @@
 /* global L */
 
-const colors = [
-  {
-    threshold: 0,
-    hex: '#ffff00'
-  },
-  {
-    threshold: 100,
-    hex: '#ffdc00'
-  },
-  {
-    threshold: 500,
-    hex: '#ffb400'
-  },
-  {
-    threshold: 2000,
-    hex: '#ff9600'
-  },
-  {
-    threshold: 10000,
-    hex: '#ff7800'
-  },
-  {
-    threshold: 50000,
-    hex: '#ff5000'
-  }
-];
+const generateColors = () => {
+  const baseColor = [
+    ['#00ffff', '#00dcff', '#00b4ff', '#0096ff', '#0078ff', '#0050ff'],
+    ['#00ff00', '#00dc00', '#00b400', '#009600', '#007800', '#005000'],
+    ['#ffff00', '#ffdc00', '#ffb400', '#ff9600', '#ff7800', '#ff5000']
+  ];
+  const randomIndex = Math.round(Math.random() * (baseColor.length - 1));
+  const colors = baseColor[randomIndex].map((color, index) => {
+    return {
+      threshold: index ? Math.pow(10, index) : 0,
+      hex: color
+    };
+  });
+  return colors;
+};
+
+const colors = generateColors();
 
 function getColor (total) {
   let output;
