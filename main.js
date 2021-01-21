@@ -8,8 +8,12 @@ const generateColors = () => {
     ['0b2027', '40798c', '70a9a1', 'cfd7c7', 'f6f1d1', 'aad922'],
     ['ffffff', '412234', '6d466b', 'b49fcc', 'ead7d7', 'a72608'],
     ['114b5f', '1a936f', '88d498', 'c6dabf', 'f3e9d2', 'ff7f11'],
-    ['a8d5e2', 'f9a620', 'ffd449', '548c2f', '104911', 'd1b1cb']
-
+    ['a8d5e2', 'f9a620', 'ffd449', '548c2f', '104911', 'd1b1cb'],
+    ['cad178', 'd3d57c', 'c7aa74', '957964', '603140', '6e4451'],
+    ['1f271b', '19647e', '28afb0', 'f4d35e', 'ee964b', 'dfd9e2'],
+    ['f92a82', 'ed7b84', 'f5dbcb', 'd6d5b3', '7eb77f', '463f3a'],
+    ['20bf55', '0b4f6c', '01baef', 'fbfbff', '757575', 'aa4465'],
+    ['e6c229', 'f17105', 'd11149', '6610f2', '1a8fe3', '7ca5b8']
   ];
   const randomIndex = Math.floor(Math.random() * (baseColor.length - 1));
   const colors = baseColor[randomIndex].map((color, index) => {
