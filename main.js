@@ -47,7 +47,7 @@ map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
 map.getPane('labels').style.pointerEvents = 'none';
 
-L.tileLayer(' https://{s}.basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_nolabels/{z}/{x}/{y}.png', {
   attribution: '©OpenStreetMap, ©CartoDB'
 }).addTo(map);
 
