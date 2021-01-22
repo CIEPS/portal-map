@@ -9,6 +9,15 @@
   <script src="leaflet.js"></script>
   <script src="Leaflet.VectorGrid.bundled.js"></script>
   <style>
+    html {
+      background-color: #e6e6e6;
+    }
+
+    #container-map {
+      margin-left: 30px;
+      margin-right: 18px;
+    }
+
     #map {
       height: 80vh;
     }
@@ -33,9 +42,13 @@
 </head>
 
 <body>
-  <label for="colors">Choose a color palette :</label>
-  <select name="colors" id="colors"></select>
-  <div id="map"></div>
+  <img src="website-top.jpg">
+  <div id="container-map">
+    <label for="colors">Choose a color palette :</label>
+    <select name="colors" id="colors"></select>
+    <div id="map"></div>
+  </div>
+  <img src="website-bottom.jpg">
   <script src="main.js"></script>
 </body>
 
