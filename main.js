@@ -52,6 +52,18 @@ const baseColor = [
   {
     name: 'Proposition Simona',
     hex: ['73F3FA', '5590D4', '6B69EB', '9B5CD6', 'F582F1']
+  },
+  {
+    name: 'Proposition Rémy',
+    hex: ['C19B00', 'C0C100', '35C100', '00C13B', '00C1A5', '0073C1']
+  },
+  {
+    name: 'Proposition Rémy',
+    hex: ['942776', 'c83d6d', 'ed645f', 'ff9354', 'ffc655', 'f9f871']
+  },
+  {
+    name: 'Proposition Rémy',
+    hex: ['942776', '6f52a9', '0073c5', '008cc5', '009fb2', '1eae96']
   }
 ];
 
