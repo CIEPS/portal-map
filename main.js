@@ -1,18 +1,15 @@
 /* global L */
 
 const baseColor = [
-  ['02394A', '043565', '5158BB', 'F26DF9', 'EB4B98', 'EAF0CE'],
-  ['2176ae', '57b8ff', 'b66d0d', 'fbb13c', 'fe6847', 'cde7b0'],
-  ['985f99', '9684a1', 'aaacb0', 'b6c9bb', 'bfedc1', 'f8f272'],
-  ['0b2027', '40798c', '70a9a1', 'cfd7c7', 'f6f1d1', 'aad922'],
-  ['ffffff', '412234', '6d466b', 'b49fcc', 'ead7d7', 'a72608'],
-  ['114b5f', '1a936f', '88d498', 'c6dabf', 'f3e9d2', 'ff7f11'],
-  ['a8d5e2', 'f9a620', 'ffd449', '548c2f', '104911', 'd1b1cb'],
-  ['cad178', 'd3d57c', 'c7aa74', '957964', '603140', '6e4451'],
-  ['1f271b', '19647e', '28afb0', 'f4d35e', 'ee964b', 'dfd9e2'],
-  ['f92a82', 'ed7b84', 'f5dbcb', 'd6d5b3', '7eb77f', '463f3a'],
-  ['20bf55', '0b4f6c', '01baef', 'fbfbff', '757575', 'aa4465'],
-  ['e6c229', 'f17105', 'd11149', '6610f2', '1a8fe3', '7ca5b8']
+  ['ff9879', 'ee776d', 'fc668f', 'ee6dd9', 'dd69fc'],
+  ['ff541f', 'e31c0b', 'fa0045', 'e30bbf', 'c705fa'],
+  ['b23b16', '9e1408', 'af0030', '9e0885', '8b03af'],
+  ['79ffbf', '6dee89', '79fc67', 'adee6d', 'ebfc69'],
+  ['1fff95', '0be33a', '1ffa01', '77e30b', 'defa05'],
+  ['16b268', '089e28', '16af01', '539e08', '9baf03'],
+  ['7982ff', '6d9bee', '66c7fb', '6de6ee', '69fcd8'],
+  ['1f2fff', '0b59e3', '00a2f9', '0bd6e3', '05fabe'],
+  ['1621b2', '083e9e', '0071ae', '08959e', '03af85']
 ];
 
 const select = document.getElementById('colors');
