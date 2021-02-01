@@ -11,7 +11,7 @@ const baseColor = [
   ['1f2fff', '0b59e3', '00a2f9', '0bd6e3', '05fabe'],
   ['1621b2', '083e9e', '0071ae', '08959e', '03af85'],
   ['F5D516', '0DD421', '1A9BEB', '890DD4', 'FA3408'],
-  ['199E55', 'B8FFD8', '61EB9F', '61EB9F', 'EB847A']
+  ['199E55', 'B8FFD8', '61EB9F', 'EB847A', '9E3C33']
 ];
 
 const select = document.getElementById('colors');
