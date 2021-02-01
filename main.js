@@ -1,30 +1,70 @@
 /* global L */
 
 const baseColor = [
-  ['ff9879', 'ee776d', 'fc668f', 'ee6dd9', 'dd69fc'],
-  ['ff541f', 'e31c0b', 'fa0045', 'e30bbf', 'c705fa'],
-  ['b23b16', '9e1408', 'af0030', '9e0885', '8b03af'],
-  ['79ffbf', '6dee89', '79fc67', 'adee6d', 'ebfc69'],
-  ['1fff95', '0be33a', '1ffa01', '77e30b', 'defa05'],
-  ['16b268', '089e28', '16af01', '539e08', '9baf03'],
-  ['7982ff', '6d9bee', '66c7fb', '6de6ee', '69fcd8'],
-  ['1f2fff', '0b59e3', '00a2f9', '0bd6e3', '05fabe'],
-  ['1621b2', '083e9e', '0071ae', '08959e', '03af85'],
-  ['F5D516', '0DD421', '1A9BEB', '890DD4', 'FA3408'],
-  ['199E55', 'B8FFD8', '61EB9F', 'EB847A', '9E3C33']
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['ff9879', 'ee776d', 'fc668f', 'ee6dd9', 'dd69fc']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['ff541f', 'e31c0b', 'fa0045', 'e30bbf', 'c705fa']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['b23b16', '9e1408', 'af0030', '9e0885', '8b03af']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['79ffbf', '6dee89', '79fc67', 'adee6d', 'ebfc69']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['1fff95', '0be33a', '1ffa01', '77e30b', 'defa05']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['16b268', '089e28', '16af01', '539e08', '9baf03']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['7982ff', '6d9bee', '66c7fb', '6de6ee', '69fcd8']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['1f2fff', '0b59e3', '00a2f9', '0bd6e3', '05fabe']
+  },
+  {
+    name: 'Proposition mr Ruiz',
+    hex: ['1621b2', '083e9e', '0071ae', '08959e', '03af85']
+  },
+  {
+    name: 'Proposition Simona',
+    hex: ['F5D516', '0DD421', '1A9BEB', '890DD4', 'FA3408']
+  },
+  {
+    name: 'Proposition Simona',
+    hex: ['16F559', '0DD4B7', '1A9BEB', '0D20D4', '740EFA']
+  },
+  {
+    name: 'Proposition Simona',
+    hex: ['9E3960', 'EB0E62', 'A53DEB', '192B9E', '314AEB']
+  },
+  {
+    name: 'Proposition Simona',
+    hex: ['73F3FA', '5590D4', '6B69EB', '9B5CD6', 'F582F1']
+  }
 ];
 
 const select = document.getElementById('colors');
 baseColor.forEach((color, index) => {
   const option = document.createElement('option');
-  option.text = 'color palette n°' + index;
+  option.text = `n°${index + 1} (${color.name})`;
   option.value = index;
   select.add(option);
 });
 
 select.addEventListener('change', (event) => {
-  console.log(event.target.value);
-  colors = baseColor[event.target.value].map((color, index) => {
+  colors = baseColor[event.target.value].hex.map((color, index) => {
     return {
       threshold: index ? Math.pow(10, index) : 0,
       hex: '#' + color
@@ -34,7 +74,7 @@ select.addEventListener('change', (event) => {
   map = createMap();
 });
 
-let colors = baseColor[select.value].map((color, index) => {
+let colors = baseColor[select.value].hex.map((color, index) => {
   return {
     threshold: index ? Math.pow(10, index) : 0,
     hex: '#' + color
