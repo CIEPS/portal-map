@@ -4,57 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Map Portal ISSN</title>
-  <link rel="stylesheet" href="leaflet.css">
-  <script src="leaflet.js"></script>
-  <script src="Leaflet.VectorGrid.bundled.js"></script>
+  <title>Map website ISSN</title>
   <style>
-    html {
+    body {
+      text-align: center;
+      color: black;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .row {
+      margin: 30px 0;
+      border: solid 1px #999999;
       background-color: #e6e6e6;
-    }
-
-    #container-map {
-      margin-left: 30px;
-      margin-right: 18px;
-    }
-
-    #map {
-      height: 80vh;
-    }
-
-    img.responsive {
-      width: 100%;
-      min-width: 960px;
-    }
-
-    .legend {
-      line-height: 22px;
-      color: #666666;
-      background-color: white;
-      padding: 5px;
-      border-radius: 5px;
-    }
-
-    .legend .color {
-      width: 18px;
-      height: 18px;
-      float: left;
-      margin-right: 8px;
-      opacity: 0.7;
-      border: solid 1px #666666;
     }
   </style>
 </head>
 
 <body>
-  <img class="responsive" src="website-top.jpg">
-  <div id="container-map">
-    <label for="colors">Choose a color palette :</label>
-    <select name="colors" id="colors"></select>
-    <div id="map"></div>
+  <div class="row">
+    <a href="portal-map.html"><h3>Portal ISSN website version</h3></a>
+    <a href="portal-map.html"><img class="responsive" src="portal-website-top.jpg"></a>
   </div>
-  <img class="responsive" src="website-bottom.jpg">
-  <script src="main.js"></script>
+  <div class="row">
+    <a href="road-map.html"><h3>Road ISSN website version</h3></a>
+    <a href="road-map.html"><img class="responsive" src="road-website-top.png"></a>
+  </div>
 </body>
 
 </html>
